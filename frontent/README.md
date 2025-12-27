@@ -1,16 +1,107 @@
-# React + Vite
+#Employee Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack Employee Management System built with React (Vite) on the frontend and Spring Boot + MySQL on the backend.
+The application supports full CRUD operations (Create, Read, Update, Delete) and is designed following RESTful API best practices.
 
-Currently, two official plugins are available:
+#Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Create, update, delete, and view employees
+RESTful API with Spring Boot
+React UI with Axios integration
+MySQL database persistence
+CORS-safe deployment using Nginx reverse proxy
+Production-ready deployment on AWS EC2
 
-## React Compiler
+#Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+#Frontend
+React (Vite)
+JavaScript (ES6+)
+AxiosHTML5 / CSS3
+Bootstrap
 
-## Expanding the ESLint configuration
+#Backend
+Java 17
+Spring Boot
+Spring Data JPA
+REST APIs
+Maven
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+#Database
+MySQL
+
+#DevOps / Hosting
+AWS EC2
+Nginx
+Git & GitHub
+
+#Project Structure
+employee-management/
+├── backend/        # Spring Boot application
+├── frontend/       # React application
+└── README.md
+
+⚙️ Backend Setup (Spring Boot)
+Prerequisites
+Java 17+
+Maven
+MySQL
+
+*Configuration
+
+Create application-prod.properties:
+spring.datasource.url=jdbc:mysql://localhost:3306/emsdb
+spring.datasource.username=emsuser
+spring.datasource.password=yourpassword
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+server.port=8080
+
+*Run Backend
+cd backend
+./mvnw clean package
+java -jar target/app.jar --spring.profiles.active=prod
+
+*Frontend Setup (React)
+Prerequisites
+Node.js 18+
+Install & Run
+cd frontend
+npm install
+npm run dev
+
+*Build for Production
+npm run build
+
+*API Endpoints
+Method	Endpoint	Description
+GET	/api/v1/employees	Get all employees
+GET	/api/v1/employees/{id}	Get employee by ID
+POST	/api/v1/employees	Create employee
+PUT	/api/v1/employees/{id}	Update employee
+DELETE	/api/v1/employees/{id}	Delete employee
+
+*Deployment (AWS EC2)
+React build served via Nginx
+Spring Boot runs as a systemd service
+Nginx reverse proxies /api requests to Spring Boot
+MySQL runs on EC2 instance
+
+*CORS Handling
+CORS issues are resolved by:
+Using Nginx as a reverse proxy
+Frontend and backend sharing the same host
+
+* Future Improvements
+Authentication & authorization (JWT)
+Pagination and sorting
+Input validation
+Docker & Docker Compose
+CI/CD pipeline (GitHub Actions)
+HTTPS with SSL
+
+👤 Author
+
+Simone
+Full-Stack Java Developer
+🔗 GitHub: your-github-profile-link
